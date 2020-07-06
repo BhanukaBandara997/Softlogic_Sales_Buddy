@@ -1,5 +1,17 @@
 <resources>
-    <string name="app_name">Softlogic_Sample</string>
+
+
+    <string name="app_name">Softlogic Sales App</string>
     <string name="login">Login</string>
     <string name="forget_password">Forget Password?</string>
+
+    <!-- Bottom Navigation Bar Titles-->
+    <string name="home_nav">Home</string>
+    <string name="products_nav">Products</string>
+    <string name="promotions_nav">Promotions</string>
+    <string name="invoice_nav">Invoice</string>
+    <string name="account_nav">Account</string>
+
+    <!-- Main View -->
+    <string name="sales_summary">Sales Summary</string>
 </resources>

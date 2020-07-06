@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    tools:context=".LoginActivity">
+    tools:context=".activity.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
                 android:layout_width="@dimen/softlogic_logo"
                 android:layout_height="@dimen/softlogic_logo"
                 android:gravity="center"
-                android:src="@drawable/Softlogic_Logo" />
+                android:src="@drawable/softlogic_logo" />
 
         </LinearLayout>
 
@@ -41,24 +41,28 @@
                 android:layout_height="@dimen/username_lbl_height"
                 android:layout_marginBottom="@dimen/username_lbl_margin_bottom"
                 android:focusedByDefault="true"
+                android:fontFamily="@font/open_sans_light"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:maxLength="50"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textStyle="" />
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/password_lbl"
                 android:layout_width="@dimen/username_lbl_width"
                 android:layout_height="@dimen/username_lbl_height"
                 android:layout_marginBottom="@dimen/password_lbl_margin_bottom"
+                android:fontFamily="@font/open_sans_light"
                 android:hint="Password"
                 android:imeOptions="actionUnspecified"
                 android:inputType="textPassword"
                 android:maxLength="20"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/forget_password_lbl"
@@ -67,8 +71,11 @@
                 android:layout_gravity="right"
                 android:layout_marginRight="5dp"
                 android:clickable="true"
+                android:fontFamily="@font/open_sans_light"
                 android:text="@string/forget_password"
-                android:textSize="@dimen/forget_password_lbl" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="@dimen/forget_password_lbl"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/login_button"
@@ -76,10 +83,13 @@
                 android:layout_height="@dimen/login_button_height"
                 android:layout_marginTop="@dimen/login_button_margin_top"
                 android:background="@drawable/login_button_shadow"
+                android:fontFamily="@font/open_sans_light"
                 android:gravity="center"
                 android:text="@string/login"
                 android:textAllCaps="false"
-                android:textColor="@color/colorWhite" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
