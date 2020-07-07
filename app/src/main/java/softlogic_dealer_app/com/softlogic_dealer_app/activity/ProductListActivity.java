@@ -1,30 +1,35 @@
 package softlogic_dealer_app.com.softlogic_dealer_app.activity;
 
+import android.content.res.Resources;
+import android.graphics.Rect;
+import android.os.Bundle;
+import android.util.Log;
+import android.util.TypedValue;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import softlogic_dealer_app.com.softlogic_dealer_app.R;
-import softlogic_dealer_app.com.softlogic_dealer_app.adapter.ProductAdapter;
-import softlogic_dealer_app.com.softlogic_dealer_app.fragments.CategoryFragment;
-import softlogic_dealer_app.com.softlogic_dealer_app.model.Category;
-import softlogic_dealer_app.com.softlogic_dealer_app.model.Product;
-
-import android.content.res.Resources;
-import android.graphics.Rect;
-import android.os.Bundle;
-import android.util.TypedValue;
-import android.view.View;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import softlogic_dealer_app.com.softlogic_dealer_app.R;
+import softlogic_dealer_app.com.softlogic_dealer_app.adapter.ProductAdapter;
+import softlogic_dealer_app.com.softlogic_dealer_app.model.Product;
 
 public class ProductListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ProductAdapter adapter;
     private List<Product> productList;
+    private static final String TAG = "ProductListActivity";
+    private Bundle bundle = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +46,25 @@ public class ProductListActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new ProductListActivity.GridSpacingItemDecoration(2, dpToPx(10), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-
+        getIncomingIntent();
         addCateogriesToList();
+    }
+
+    private void getIncomingIntent() {
+        Log.d(TAG, "getIncomingIntent: checking for incoming intents.");
+
+        if (getIntent().hasExtra("category_name")) {
+            Log.d(TAG, "getIncomingIntent: found intent extras.");
+
+            String categoryName = getIntent().getStringExtra("category_name");
+
+            setImage(categoryName);
+        }
+    }
+
+    private void setImage(String imageName) {
+        Log.d(TAG, "setImage: setting te image and name to widgets.");
+        Log.d(TAG, "category_name");
     }
 
     /**
@@ -56,34 +78,24 @@ public class ProductListActivity extends AppCompatActivity {
                 R.drawable.album4,
                 R.drawable.album5,
                 R.drawable.album6,
-                R.drawable.album7,
-                R.drawable.album8,
-                R.drawable.album9,
-                R.drawable.album10,
-                R.drawable.album11};
+                R.drawable.album7};
 
-        Product a = new Product("True Romance", "LKR 35,000", covers[0]);
+        Product a = new Product("POS Printer 11 ERER", "LKR 35,000", covers[0]);
         productList.add(a);
 
-        a = new Product("Xscpae", "LKR 35,000", covers[1]);
+        a = new Product("Mobile Printer 251 RRETT", "LKR 35,000", covers[1]);
         productList.add(a);
 
-        a = new Product("Maroon 5", "LKR 35,000", covers[2]);
+        a = new Product("Projectors 164 TETET", "LKR 35,000", covers[2]);
         productList.add(a);
 
-        a = new Product("Born to Die", "LKR 35,000", covers[3]);
+        a = new Product("Barcode Readers 545 TETTE", "LKR 35,000", covers[3]);
         productList.add(a);
 
-        a = new Product("Honeymoon", "LKR 35,000", covers[4]);
+        a = new Product("POS Systems 4642 HIGFI", "LKR 35,000", covers[4]);
         productList.add(a);
 
-        a = new Product("I Need a Doctor", "LKR 35,000", covers[5]);
-        productList.add(a);
-
-        a = new Product("Loud", "LKR 35,000", covers[6]);
-        productList.add(a);
-
-        a = new Product("Legend", "LKR 35,000", covers[7]);
+        a = new Product("Touch Systems 7816 RERERQ", "LKR 35,000", covers[5]);
         productList.add(a);
 
         adapter.notifyDataSetChanged();

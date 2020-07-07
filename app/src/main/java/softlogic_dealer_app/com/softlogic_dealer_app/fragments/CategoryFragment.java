@@ -3,18 +3,17 @@ package softlogic_dealer_app.com.softlogic_dealer_app.fragments;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,41 +103,28 @@ public class CategoryFragment extends Fragment {
                 R.drawable.album4,
                 R.drawable.album5,
                 R.drawable.album6,
-                R.drawable.album7,
-                R.drawable.album8,
-                R.drawable.album9,
-                R.drawable.album10,
-                R.drawable.album11};
+                R.drawable.album7};
 
-        Category a = new Category("True Romance", covers[0]);
+        Category a = new Category("POS Printer", covers[0]);
         categoryList.add(a);
 
-        a = new Category("Xscpae", covers[1]);
+        a = new Category("Mobile Printer", covers[1]);
         categoryList.add(a);
 
-        a = new Category("Maroon 5", covers[2]);
+        a = new Category("Projectors", covers[2]);
         categoryList.add(a);
 
-        a = new Category("Born to Die", covers[3]);
+        a = new Category("Barcode Readers", covers[3]);
         categoryList.add(a);
 
-        a = new Category("Honeymoon", covers[4]);
+        a = new Category("Projectors", covers[4]);
         categoryList.add(a);
 
-        a = new Category("I Need a Doctor", covers[5]);
+        a = new Category("POS Systems", covers[5]);
         categoryList.add(a);
 
-        a = new Category("Loud", covers[6]);
+        a = new Category("Touch Systems", covers[6]);
         categoryList.add(a);
-
-        a = new Category("Legend", covers[7]);
-        categoryList.add(a);
-
-//        a = new Category("Hello", covers[8]);
-//        categoryList.add(a);
-//
-//        a = new Category("Greatest Hits", covers[9]);
-//        categoryList.add(a);
 
         adapter.notifyDataSetChanged();
     }
