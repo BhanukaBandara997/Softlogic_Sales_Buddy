@@ -12,14 +12,15 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <android.support.design.widget.AppBarLayout
+        <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbarLayout"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:fitsSystemWindows="true"
+            android:animateLayoutChanges="true"
             android:theme="@style/CustomActionBarTheme">
 
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -29,23 +30,7 @@
                 app:theme="@style/CustomActionBarTheme"
                 app:titleTextColor="@color/colorWhite" />
 
-        </android.support.design.widget.AppBarLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        </com.google.android.material.appbar.AppBarLayout>
 
     </LinearLayout>
 
@@ -54,18 +39,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.design.widget.BottomNavigationView
+        <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            app:itemBackground="@color/colorWhite"
+            app:itemBackground="@drawable/item_bg"
             app:itemIconTint="@drawable/nav_item_color_state"
             app:itemTextColor="@drawable/nav_item_color_state"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_navigation_menu" />
 
     </FrameLayout>
-
 
 </LinearLayout>

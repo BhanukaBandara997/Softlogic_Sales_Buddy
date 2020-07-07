@@ -42,6 +42,8 @@
     <dimen name="dashboard_button_text">16sp</dimen>
     <dimen name="forget_password_lbl_text">25sp</dimen>
 
+    <dimen name="main_view_titles">14sp</dimen>
+
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="dots_height">30dp</dimen>
     <dimen name="img_width_height">120dp</dimen>

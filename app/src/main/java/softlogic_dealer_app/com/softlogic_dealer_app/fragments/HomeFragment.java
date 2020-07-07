@@ -1,14 +1,37 @@
 package softlogic_dealer_app.com.softlogic_dealer_app.fragments;
 
-import android.support.v4.app.Fragment;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.utils.ColorTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
 import softlogic_dealer_app.com.softlogic_dealer_app.R;
+
+import static softlogic_dealer_app.com.softlogic_dealer_app.R.color.colorBlue;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,10 +43,21 @@ public class HomeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    protected final String[] parties = new String[]{
+            "Party A", "Party B", "Party C", "Party D", "Party E", "Party F", "Party G", "Party H",
+            "Party I", "Party J", "Party K", "Party L", "Party M", "Party N", "Party O", "Party P",
+            "Party Q", "Party R", "Party S", "Party T", "Party U", "Party V", "Party W", "Party X",
+            "Party Y", "Party Z"
+    };
+    private PieData data;
+    private TextView categories_txt, ranking_txt;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private LinearLayout categorical_layout, leader_board_layout;
+    private PieChart chart;
+
 
     public HomeFragment() {
         // Required empty public constructor
@@ -60,6 +94,94 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Sales Summary");
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        chart = view.findViewById(R.id.pieChart);
+        categories_txt = view.findViewById(R.id.categories_txt);
+        ranking_txt = view.findViewById(R.id.ranking_txt);
+        categorical_layout = view.findViewById(R.id.categorical_layout);
+        leader_board_layout = view.findViewById(R.id.leader_board_layout);
+
+
+        categories_txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                categorical_layout.setVisibility(View.VISIBLE);
+                leader_board_layout.setVisibility(View.GONE);
+                categories_txt.setTextColor(ContextCompat.getColor(getContext(), R.color.colorBlue));
+                ranking_txt.setTextColor(ContextCompat.getColor(getContext(), R.color.colorDarkGrey));
+            }
+        });
+
+        ranking_txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                leader_board_layout.setVisibility(View.VISIBLE);
+                categorical_layout.setVisibility(View.GONE);
+                ranking_txt.setTextColor(ContextCompat.getColor(getContext(), R.color.colorBlue));
+                categories_txt.setTextColor(ContextCompat.getColor(getContext(), R.color.colorDarkGrey));
+            }
+        });
+
+        // Chart View
+        chart.animateY(1400, Easing.EaseInOutQuad);
+
+        Legend l = chart.getLegend();
+        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
+        l.setOrientation(Legend.LegendOrientation.VERTICAL);
+        l.setDrawInside(false);
+        l.setEnabled(false);
+
+        chart.setDrawMarkers(false); // To remove markers when click
+        chart.setDrawEntryLabels(false); // To remove labels from piece of pie
+        chart.getDescription().setEnabled(false); // To remove description of pie
+        setData(10, 50);
+        return view;
     }
+
+    private void setData(int count, float range) {
+
+        ArrayList<PieEntry> entries = new ArrayList<>();
+
+        // NOTE: The order of the entries when being added to the entries array determines their position around the center of
+        // the chart.
+        for (int i = 0; i < count; i++) {
+            entries.add(new PieEntry((float) (Math.random() * range) + range / 5, parties[i % parties.length]));
+        }
+
+        PieDataSet dataSet = new PieDataSet(entries, "Election Results");
+        dataSet.setDrawValues(false);
+        // add a lot of colors
+
+        ArrayList<Integer> colors = new ArrayList<>();
+
+        for (int c : ColorTemplate.VORDIPLOM_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.JOYFUL_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.COLORFUL_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.LIBERTY_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.PASTEL_COLORS)
+            colors.add(c);
+
+        colors.add(ColorTemplate.getHoloBlue());
+
+        dataSet.setColors(colors);
+
+        PieData data = new PieData(dataSet);
+        data.setValueFormatter(new PercentFormatter());
+        chart.setData(data);
+
+        // undo all highlight
+        chart.highlightValues(null);
+        chart.invalidate();
+    }
+
 }

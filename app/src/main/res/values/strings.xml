@@ -1,6 +1,4 @@
 <resources>
-
-
     <string name="app_name">Softlogic Sales App</string>
     <string name="login">Login</string>
     <string name="forget_password">Forget Password?</string>
@@ -14,4 +12,15 @@
 
     <!-- Main View -->
     <string name="sales_summary">Sales Summary</string>
+    <string name="categories_title">Categories</string>
+    <string name="ranking_title">Ranking</string>
+
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="toolbar_titles">
+        <item>Sales Summary</item>
+        <item>Product List</item>
+        <item>Ongoing Promotions</item>
+        <item>Invoice Generator</item>
+    </string-array>
+
 </resources>

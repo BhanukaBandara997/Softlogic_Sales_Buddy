@@ -8,13 +8,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
+        <activity android:name=".activity.ProductListActivity"></activity>
         <activity
             android:name=".activity.LoginActivity"
             android:theme="@style/NoActionBar" />
-
-
         <activity
             android:name=".activity.MainActivity"
+            android:label="Sales Summary"
             android:theme="@style/CustomActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
