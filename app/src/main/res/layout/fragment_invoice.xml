@@ -148,6 +148,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="Receipt"
+                    android:layout_marginStart="5dp"
                     android:textColor="@color/colorLightGrey"
                     android:textFontWeight="700"
                     android:textSize="14sp" />
