@@ -5,13 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.CategoryFragment">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_products" />
-
     <include layout="@layout/category_list" />
 
 </FrameLayout>

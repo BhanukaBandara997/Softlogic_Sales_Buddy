@@ -3,21 +3,18 @@ package softlogic_dealer_app.com.softlogic_dealer_app.activity;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import softlogic_dealer_app.com.softlogic_dealer_app.R;
 import softlogic_dealer_app.com.softlogic_dealer_app.adapter.ProductAdapter;
@@ -28,8 +25,7 @@ public class ProductListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProductAdapter adapter;
     private List<Product> productList;
-    private static final String TAG = "ProductListActivity";
-    private Bundle bundle = null;
+    private Toolbar mToolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +33,14 @@ public class ProductListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_list);
 
         recyclerView = findViewById(R.id.product_recycler_view);
+        mToolBar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolBar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+//        Get details intent
+        String categoryName = getIntent().getStringExtra("category_name");
+        getSupportActionBar().setTitle(categoryName);
 
         productList = new ArrayList<>();
         adapter = new ProductAdapter(ProductListActivity.this, productList);
@@ -46,26 +50,15 @@ public class ProductListActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new ProductListActivity.GridSpacingItemDecoration(2, dpToPx(10), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-        getIncomingIntent();
         addCateogriesToList();
     }
 
-    private void getIncomingIntent() {
-        Log.d(TAG, "getIncomingIntent: checking for incoming intents.");
-
-        if (getIntent().hasExtra("category_name")) {
-            Log.d(TAG, "getIncomingIntent: found intent extras.");
-
-            String categoryName = getIntent().getStringExtra("category_name");
-
-            setImage(categoryName);
-        }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
-    private void setImage(String imageName) {
-        Log.d(TAG, "setImage: setting te image and name to widgets.");
-        Log.d(TAG, "category_name");
-    }
 
     /**
      * Adding few albums for testing
@@ -80,22 +73,76 @@ public class ProductListActivity extends AppCompatActivity {
                 R.drawable.album6,
                 R.drawable.album7};
 
-        Product a = new Product("POS Printer 11 ERER", "LKR 35,000", covers[0]);
+        Product a = new Product("Epson EH-TW6100 Home Theater Projector", "Resolution 1080p Projector Distance Zoom: Wide 30 to 300 (0.87 - 8.9m)", "PJ-V11H501052-TW6100", " Resolution 1080p \n" +
+                " Projector Distance \n" +
+                " Zoom: Wide 30 to 300 (0.87 - 8.9m) \n" +
+                " Zoom: Tele 30 to 300 (1.42 - 14.5m) \n " +
+                " Brightness White Light \n" +
+                " Output 2,300 Lumens \n" +
+                " Color Light Output 2,300 Lumens \n" +
+                " Lamp Life (Normal/ Eco) 4,000 hours/ 5,000 hours \n" +
+                " Contrast Ratio 40,000:1 \n" +
+                " Warranty 1 Year & 750 hours for lamp", "www.facebook.com/item001", "LKR 35,000", covers[0]);
         productList.add(a);
 
-        a = new Product("Mobile Printer 251 RRETT", "LKR 35,000", covers[1]);
+        a = new Product("Epson EH-TW6100 Home Theater Projector", "Resolution 1080p Projector Distance Zoom: Wide 30 to 300 (0.87 - 8.9m)", "PJ-V11H501052-TW6100", "Resolution 1080p \\n" +
+                " Projector Distance\t  \\n" +
+                " Zoom: Wide\t30 to 300 (0.87 - 8.9m) \\n" +
+                " Zoom: Tele\t30 to 300 (1.42 - 14.5m) \\n" +
+                " Brightness White Light \\n" +
+                " Output\t2,300 Lumens \\n" +
+                " Color Light Output\t2,300 Lumens \\n" +
+                " Lamp Life (Normal/ Eco)\t4,000 hours/ 5,000 hours \\n" +
+                " Contrast Ratio\t40,000:1 \\n" +
+                " Warranty\t1 Year & 750 hours for lamp", "www.facebook.com/item001", "LKR 45,000", covers[1]);
         productList.add(a);
 
-        a = new Product("Projectors 164 TETET", "LKR 35,000", covers[2]);
+        a = new Product("Epson EH-TW6100 Home Theater Projector", "Resolution 1080p Projector Distance Zoom: Wide 30 to 300 (0.87 - 8.9m)", "PJ-V11H501052-TW6100", "Resolution 1080p \\n" +
+                " Projector Distance\t  \\n" +
+                " Zoom: Wide\t30 to 300 (0.87 - 8.9m) \\n" +
+                " Zoom: Tele\t30 to 300 (1.42 - 14.5m) \\n" +
+                " Brightness White Light \\n" +
+                " Output\t2,300 Lumens \\n" +
+                " Color Light Output\t2,300 Lumens \\n" +
+                " Lamp Life (Normal/ Eco)\t4,000 hours/ 5,000 hours \\n" +
+                " Contrast Ratio\t40,000:1 \\n" +
+                " Warranty\t1 Year & 750 hours for lamp", "www.facebook.com/item001", "LKR 55,000", covers[2]);
         productList.add(a);
 
-        a = new Product("Barcode Readers 545 TETTE", "LKR 35,000", covers[3]);
+        a = new Product("Epson EH-TW6100 Home Theater Projector", "Resolution 1080p Projector Distance Zoom: Wide 30 to 300 (0.87 - 8.9m)", "PJ-V11H501052-TW6100", "Resolution 1080p \\n" +
+                " Projector Distance\t  \\n" +
+                " Zoom: Wide\t30 to 300 (0.87 - 8.9m) \\n" +
+                " Zoom: Tele\t30 to 300 (1.42 - 14.5m) \\n" +
+                " Brightness White Light \\n" +
+                " Output\t2,300 Lumens \\n" +
+                " Color Light Output\t2,300 Lumens \\n" +
+                " Lamp Life (Normal/ Eco)\t4,000 hours/ 5,000 hours \\n" +
+                " Contrast Ratio\t40,000:1 \\n" +
+                " Warranty\t1 Year & 750 hours for lamp", "www.facebook.com/item001", "LKR 65,000", covers[3]);
         productList.add(a);
 
-        a = new Product("POS Systems 4642 HIGFI", "LKR 35,000", covers[4]);
+        a = new Product("Epson EH-TW6100 Home Theater Projector", "Resolution 1080p Projector Distance Zoom: Wide 30 to 300 (0.87 - 8.9m)", "PJ-V11H501052-TW6100", "Resolution 1080p \\n" +
+                " Projector Distance\t  \\n" +
+                " Zoom: Wide\t30 to 300 (0.87 - 8.9m) \\n" +
+                " Zoom: Tele\t30 to 300 (1.42 - 14.5m) \\n" +
+                " Brightness White Light \\n" +
+                " Output\t2,300 Lumens \\n" +
+                " Color Light Output\t2,300 Lumens \\n" +
+                " Lamp Life (Normal/ Eco)\t4,000 hours/ 5,000 hours \\n" +
+                " Contrast Ratio\t40,000:1 \\n" +
+                " Warranty\t1 Year & 750 hours for lamp", "www.facebook.com/item001", "LKR 75,000", covers[4]);
         productList.add(a);
 
-        a = new Product("Touch Systems 7816 RERERQ", "LKR 35,000", covers[5]);
+        a = new Product("Epson EH-TW6100 Home Theater Projector", "Resolution 1080p Projector Distance Zoom: Wide 30 to 300 (0.87 - 8.9m)", "PJ-V11H501052-TW6100", "Resolution 1080p \\n" +
+                " Projector Distance\t  \\n" +
+                " Zoom: Wide\t30 to 300 (0.87 - 8.9m) \\n" +
+                " Zoom: Tele\t30 to 300 (1.42 - 14.5m) \\n" +
+                " Brightness White Light \\n" +
+                " Output\t2,300 Lumens \\n" +
+                " Color Light Output\t2,300 Lumens \\n" +
+                " Lamp Life (Normal/ Eco)\t4,000 hours/ 5,000 hours \\n" +
+                " Contrast Ratio\t40,000:1 \\n" +
+                " Warranty\t1 Year & 750 hours for lamp", "www.facebook.com/item001", "LKR 85,000", covers[5]);
         productList.add(a);
 
         adapter.notifyDataSetChanged();

@@ -31,10 +31,9 @@
                 android:scaleType="fitXY" />
 
             <TextView
-                android:id="@+id/product_title"
+                android:id="@+id/product_summary_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/product_thumbnail"
                 android:layout_marginBottom="5dp"
                 android:gravity="left"
                 android:paddingLeft="10dp"
@@ -47,7 +46,6 @@
                 android:id="@+id/product_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/product_thumbnail"
                 android:layout_marginBottom="10dp"
                 android:gravity="left"
                 android:paddingLeft="10dp"

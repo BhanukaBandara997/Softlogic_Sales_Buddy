@@ -10,6 +10,8 @@
     <color name="colorDarkGreen">#009581</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGrey">#646665</color>
+    <color name="colorLightGrey">#393939</color>
+    <color name="colorLightestGrey">#C4C4C4</color>
 
     <color name="colorBlue">#4F73F3</color>
     <color name="colorDarkGrey">#717171</color>

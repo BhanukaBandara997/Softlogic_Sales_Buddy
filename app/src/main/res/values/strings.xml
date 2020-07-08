@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Softlogic Sales App</string>
+    <string name="app_name">Softlogic Sales Buddy</string>
     <string name="login">Login</string>
     <string name="forget_password">Forget Password?</string>
 
@@ -14,6 +14,7 @@
     <string name="sales_summary">Sales Summary</string>
     <string name="categories_title">Categories</string>
     <string name="ranking_title">Ranking</string>
+    <string name="resolution_1080p_projector_distance_zoom_wide_30_to_300_0_87_8_9m_zoom_tele_30_to_300_1_42_14_5m_brightness_white_light_output_2_300_lumens_color_light_output_2_300_lumens_lamp_life_normal_eco_4_000_hours_5_000_hours_contrast_ratio_40_000_1_warranty_1_year_amp_750_hours_for_lamp"><![CDATA[Resolution 1080p Projector Distance Zoom: Wide 30 to 300 (0.87 - 8.9m) Zoom: Tele 30 to 300 (1.42 - 14.5m) Brightness White Light Output 2,300 Lumens Color Light Output 2,300 Lumens Lamp Life (Normal/ Eco) 4,000 hours/ 5,000 hours Contrast Ratio 40,000:1 Warranty 1 Year & 750 hours for lamp]]></string>
 
     <!-- Toolbar titles when navigation menu item is selected -->
     <string-array name="toolbar_titles">

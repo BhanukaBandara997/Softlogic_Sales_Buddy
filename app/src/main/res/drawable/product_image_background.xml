@@ -9,10 +9,10 @@
     </item>
     <!-- background color -->
     <item
-        android:bottom="3px"
-        android:left="3px"
-        android:right="3px"
-        android:top="3px">
+        android:bottom="2px"
+        android:left="2px"
+        android:right="2px"
+        android:top="2px">
         <shape android:shape="rectangle">
             <solid android:color="@color/colorWhite" />
             <corners android:radius="8dp" />
@@ -26,7 +26,7 @@
                 android:centerColor="#00FF0000"
                 android:centerY="0.9"
                 android:endColor="#00FF0000"
-                android:startColor="#C4C4C4"
+                android:startColor="#FFFFFF"
                 android:type="linear" />
             <corners android:radius="8dp" />
         </shape>
@@ -39,9 +39,35 @@
                 android:centerColor="#00FF0000"
                 android:centerY="0.9"
                 android:endColor="#00FF0000"
-                android:startColor="#C4C4C4"
+                android:startColor="#FFFFFF"
                 android:type="linear" />
 
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    <!-- over left shadow -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="-270"
+                android:centerColor="#00FF0000"
+                android:centerY="0.9"
+                android:endColor="#00FF0000"
+                android:startColor="#FFFFFF"
+                android:type="linear" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    <!-- over right shadow -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:centerColor="#00FF0000"
+                android:centerY="0.9"
+                android:endColor="#00FF0000"
+                android:startColor="#FFFFFF"
+                android:type="linear" />
             <corners android:radius="8dp" />
         </shape>
     </item>

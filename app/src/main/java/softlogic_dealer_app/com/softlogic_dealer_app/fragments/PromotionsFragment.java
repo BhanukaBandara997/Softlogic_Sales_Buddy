@@ -1,15 +1,27 @@
 package softlogic_dealer_app.com.softlogic_dealer_app.fragments;
 
+import android.content.res.Resources;
+import android.graphics.Rect;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import softlogic_dealer_app.com.softlogic_dealer_app.R;
+import softlogic_dealer_app.com.softlogic_dealer_app.adapter.PromotionsAdapter;
+import softlogic_dealer_app.com.softlogic_dealer_app.model.Category;
+import softlogic_dealer_app.com.softlogic_dealer_app.model.Promotion;
 
 public class PromotionsFragment extends Fragment {
 
@@ -21,6 +33,9 @@ public class PromotionsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private RecyclerView recyclerView;
+    private PromotionsAdapter adapter;
+    private List<Promotion> promotionList;
 
     public PromotionsFragment() {
         // Required empty public constructor
@@ -59,6 +74,85 @@ public class PromotionsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Ongoing Promotions");
-        return inflater.inflate(R.layout.fragment_promotions, container, false);
+        View view = inflater.inflate(R.layout.fragment_promotions, container, false);
+        recyclerView = view.findViewById(R.id.promotions_recycler_view);
+
+        promotionList = new ArrayList<>();
+        adapter = new PromotionsAdapter(getActivity(), promotionList);
+
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 1);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.addItemDecoration(new PromotionsFragment.GridSpacingItemDecoration(1, dpToPx(10), true));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
+
+        addPromotionsToList();
+
+        return view;
     }
+
+    /**
+     * Adding few albums for testing
+     */
+    private void addPromotionsToList() {
+        int[] covers = new int[]{
+                R.drawable.promolkpromo1,
+                R.drawable.promolkpromo2};
+
+        Promotion a = new Promotion(covers[0]);
+        promotionList.add(a);
+
+        a = new Promotion(covers[1]);
+        promotionList.add(a);
+
+        adapter.notifyDataSetChanged();
+    }
+
+    /**
+     * Converting dp to pixel
+     */
+    private int dpToPx(int dp) {
+        Resources r = getResources();
+        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
+    }
+
+    /**
+     * RecyclerView item decoration - give equal margin around grid item
+     */
+    public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
+
+        private int spanCount;
+        private int spacing;
+        private boolean includeEdge;
+
+        public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
+            this.spanCount = spanCount;
+            this.spacing = spacing;
+            this.includeEdge = includeEdge;
+        }
+
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            int position = parent.getChildAdapterPosition(view); // item position
+            int column = position % spanCount; // item column
+
+            if (includeEdge) {
+                outRect.left = spacing - column * spacing / spanCount; // spacing - column * ((1f / spanCount) * spacing)
+                outRect.right = (column + 1) * spacing / spanCount; // (column + 1) * ((1f / spanCount) * spacing)
+
+                if (position < spanCount) { // top edge
+                    outRect.top = spacing;
+                }
+                outRect.bottom = spacing; // item bottom
+            } else {
+                outRect.left = column * spacing / spanCount; // column * ((1f / spanCount) * spacing)
+                outRect.right = spacing - (column + 1) * spacing / spanCount; // spacing - (column + 1) * ((1f /    spanCount) * spacing)
+                if (position >= spanCount) {
+                    outRect.top = spacing; // item top
+                }
+            }
+        }
+    }
+
+
 }

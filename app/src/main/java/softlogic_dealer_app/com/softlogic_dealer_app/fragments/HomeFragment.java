@@ -1,20 +1,15 @@
 package softlogic_dealer_app.com.softlogic_dealer_app.fragments;
 
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-
-
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -26,12 +21,8 @@ import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
 
 import softlogic_dealer_app.com.softlogic_dealer_app.R;
-
-import static softlogic_dealer_app.com.softlogic_dealer_app.R.color.colorBlue;
 
 /**
  * A simple {@link Fragment} subclass.

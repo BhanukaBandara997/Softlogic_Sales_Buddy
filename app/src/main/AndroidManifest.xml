@@ -7,10 +7,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true">
-        <activity
-            android:name=".activity.ProductListActivity"
-            android:theme="@style/AppTheme" />
+        android:supportsRtl="true"
+        android:theme="@style/NoActionBar">
+        <activity android:name=".activity.ProductItemActivity"></activity>
+        <activity android:name=".activity.ProductListActivity" />
         <activity
             android:name=".activity.LoginActivity"
             android:theme="@style/NoActionBar" />
@@ -24,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

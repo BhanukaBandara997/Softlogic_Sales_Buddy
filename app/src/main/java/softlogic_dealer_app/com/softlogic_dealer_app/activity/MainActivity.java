@@ -1,26 +1,36 @@
 package softlogic_dealer_app.com.softlogic_dealer_app.activity;
 
-import androidx.annotation.NonNull;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import androidx.appcompat.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import softlogic_dealer_app.com.softlogic_dealer_app.R;
 import softlogic_dealer_app.com.softlogic_dealer_app.fragments.AccountFragment;
+import softlogic_dealer_app.com.softlogic_dealer_app.fragments.CategoryFragment;
 import softlogic_dealer_app.com.softlogic_dealer_app.fragments.HomeFragment;
 import softlogic_dealer_app.com.softlogic_dealer_app.fragments.InvoiceFragment;
-import softlogic_dealer_app.com.softlogic_dealer_app.fragments.CategoryFragment;
 import softlogic_dealer_app.com.softlogic_dealer_app.fragments.PromotionsFragment;
 
 public class MainActivity extends AppCompatActivity {
+    private BottomNavigationView bottomNavigationView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        bottomNavigationView = findViewById(R.id.navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
+        openFragment(HomeFragment.newInstance("", ""));
+
+    }
 
     BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -46,21 +56,6 @@ public class MainActivity extends AppCompatActivity {
                     return false;
                 }
             };
-    private BottomNavigationView bottomNavigationView;
-    private Toolbar mToolBar;
-    private String[] activityTitles;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        bottomNavigationView = findViewById(R.id.navigation);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
-        openFragment(HomeFragment.newInstance("", ""));
-
-    }
 
     public void openFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

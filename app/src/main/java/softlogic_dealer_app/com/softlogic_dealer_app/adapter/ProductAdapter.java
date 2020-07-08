@@ -1,6 +1,7 @@
 package softlogic_dealer_app.com.softlogic_dealer_app.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.io.Serializable;
 import java.util.List;
 
 import softlogic_dealer_app.com.softlogic_dealer_app.R;
+import softlogic_dealer_app.com.softlogic_dealer_app.activity.ProductItemActivity;
 import softlogic_dealer_app.com.softlogic_dealer_app.model.Product;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductListViewHolder> {
@@ -36,13 +39,22 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductL
 
     @Override
     public void onBindViewHolder(@NonNull ProductListViewHolder holder, int position) {
+        final int productIndex = position;
         Product product = productList.get(position);
-        holder.title.setText(product.getProductName());
+        holder.title.setText(product.getProductSummaryDetails());
         holder.price.setText(String.valueOf(product.getPrice()));
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Product product = productList.get(productIndex);
+                Intent intent = new Intent(mContext, ProductItemActivity.class);
+                intent.putExtra("product_name", product.getProductName());
+                intent.putExtra("product_serial_no", product.getProductSerialNo());
+                intent.putExtra("product_price", product.getPrice());
+                intent.putExtra("product_description", product.getProductDescription());
+                intent.putExtra("product_social_media_link", product.getSocialMediaLink());
+                intent.putExtra("product_thumbnail", product.getThumbnail());
+                mContext.startActivity(intent);
             }
         });
         // loading product cover using Glide library
@@ -61,7 +73,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductL
 
         public ProductListViewHolder(View view) {
             super(view);
-            title = view.findViewById(R.id.product_title);
+            title = view.findViewById(R.id.product_summary_details);
             price = view.findViewById(R.id.product_price);
             thumbnail = view.findViewById(R.id.product_thumbnail);
         }
