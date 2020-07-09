@@ -2,16 +2,14 @@ package softlogic_dealer_app.com.softlogic_dealer_app.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
-import java.util.Objects;
+import androidx.fragment.app.Fragment;
 
 import softlogic_dealer_app.com.softlogic_dealer_app.R;
 
@@ -23,8 +21,14 @@ public class AccountFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    String mParam1;
+    String mParam2;
+    TextView userName;
+    TextView userCompany;
+    TextView userEmailAddress;
+    TextView appVersionNumber;
+    TextView appVersion;
+    Button uploadInvoiceButton;
 
     public AccountFragment() {
         // Required empty public constructor
@@ -68,6 +72,19 @@ public class AccountFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = localInflater.inflate(R.layout.fragment_account, container, false);
+        userName = view.findViewById(R.id.user_name);
+        userEmailAddress = view.findViewById(R.id.user_email_address);
+        userCompany = view.findViewById(R.id.user_company);
+        appVersionNumber = view.findViewById(R.id.app_version_number);
+        appVersion = view.findViewById(R.id.app_version);
+        uploadInvoiceButton = view.findViewById(R.id.logout_button);
+
+        uploadInvoiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         return view;
     }

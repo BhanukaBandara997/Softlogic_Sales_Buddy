@@ -154,7 +154,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/upload_invoice_button"
+                android:id="@+id/logout_button"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

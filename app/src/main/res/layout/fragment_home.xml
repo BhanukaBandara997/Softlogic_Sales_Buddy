@@ -151,9 +151,12 @@
             android:id="@+id/leader_board_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_marginBottom="60dp"
+            android:layout_weight="0.9"
             android:orientation="vertical"
             android:visibility="gone">
+
+            <include layout="@layout/ranked_list" />
 
         </LinearLayout>
 

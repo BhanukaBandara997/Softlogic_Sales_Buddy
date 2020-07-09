@@ -5,11 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -21,8 +24,11 @@ import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import softlogic_dealer_app.com.softlogic_dealer_app.R;
+import softlogic_dealer_app.com.softlogic_dealer_app.adapter.RankedSalesAdapter;
+import softlogic_dealer_app.com.softlogic_dealer_app.model.RankedSalesPerson;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,6 +54,9 @@ public class HomeFragment extends Fragment {
     private String mParam2;
     private LinearLayout categorical_layout, leader_board_layout;
     private PieChart chart;
+    private RecyclerView recyclerView;
+    private RankedSalesAdapter adapter;
+    private List<RankedSalesPerson> rankedSalesPersonList;
 
 
     public HomeFragment() {
@@ -87,6 +96,8 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Sales Summary");
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+
         chart = view.findViewById(R.id.pieChart);
         categories_txt = view.findViewById(R.id.categories_txt);
         ranking_txt = view.findViewById(R.id.ranking_txt);
@@ -111,6 +122,7 @@ public class HomeFragment extends Fragment {
                 categorical_layout.setVisibility(View.GONE);
                 ranking_txt.setTextColor(ContextCompat.getColor(getContext(), R.color.colorBlue));
                 categories_txt.setTextColor(ContextCompat.getColor(getContext(), R.color.colorDarkGrey));
+
             }
         });
 
@@ -128,6 +140,18 @@ public class HomeFragment extends Fragment {
         chart.setDrawEntryLabels(false); // To remove labels from piece of pie
         chart.getDescription().setEnabled(false); // To remove description of pie
         setData(10, 50);
+
+        recyclerView = view.findViewById(R.id.rank_list_recycler_view);
+
+        rankedSalesPersonList = new ArrayList<>();
+        adapter = new RankedSalesAdapter(getActivity(), rankedSalesPersonList);
+
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 1);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setAdapter(adapter);
+
+        addRankedSalesPersonsToList();
+
         return view;
     }
 
@@ -174,5 +198,46 @@ public class HomeFragment extends Fragment {
         chart.highlightValues(null);
         chart.invalidate();
     }
+
+    /**
+     * Adding Ranked Sales Persons To List
+     */
+    private void addRankedSalesPersonsToList() {
+        int[] covers = new int[]{
+                R.drawable.personal_user};
+
+        RankedSalesPerson a = new RankedSalesPerson(1, "Felicity Lloyd", covers[0], "Dinapala-Piliyandala", 60);
+        rankedSalesPersonList.add(a);
+
+        a = new RankedSalesPerson(2, "Sama Dudley", covers[0], "Dinapala-Colombo", 40);
+        rankedSalesPersonList.add(a);
+
+        a = new RankedSalesPerson(3, "Smith Will", covers[0], "Dinapala-Kandy", 35);
+        rankedSalesPersonList.add(a);
+
+        a = new RankedSalesPerson(4, "Smith Will", covers[0], "Dinapala-Colombo", 30);
+        rankedSalesPersonList.add(a);
+
+        a = new RankedSalesPerson(5, "Smith Will", covers[0], "Dinapala-Wellawatte", 25);
+        rankedSalesPersonList.add(a);
+
+        a = new RankedSalesPerson(6, "Smith Will", covers[0], "Dinapala-Colombo", 25);
+        rankedSalesPersonList.add(a);
+
+        a = new RankedSalesPerson(7, "Smith Will", covers[0], "Dinapala-Colombo", 15);
+        rankedSalesPersonList.add(a);
+
+        a = new RankedSalesPerson(8, "Smith Will", covers[0], "Dinapala-Colombo", 10);
+        rankedSalesPersonList.add(a);
+
+        a = new RankedSalesPerson(9, "Smith Will", covers[0], "Dinapala-Colombo", 5);
+        rankedSalesPersonList.add(a);
+
+        a = new RankedSalesPerson(10, "Smith Will", covers[0], "Dinapala-Dehiwala", 2);
+        rankedSalesPersonList.add(a);
+
+        adapter.notifyDataSetChanged();
+    }
+
 
 }

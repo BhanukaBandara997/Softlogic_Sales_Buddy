@@ -48,7 +48,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1.2">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -63,12 +63,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
-                    android:layout_weight="0.7"
+                    android:layout_weight="1"
                     android:background="@drawable/editable_text_box_border"
                     android:focusable="true"
                     android:padding="5dp"
-                    android:maxLength="15"
-
+                    android:inputType="text"
+                    android:maxLength="18"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
@@ -95,6 +95,7 @@
                     android:focusable="true"
                     android:padding="5dp"
                     android:maxLength="4"
+                    android:inputType="number"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
