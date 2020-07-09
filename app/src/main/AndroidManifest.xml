@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="softlogic_dealer_app.com.softlogic_dealer_app">
-
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -11,14 +10,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:configChanges="orientation"
         android:screenOrientation="portrait"
         android:theme="@style/NoActionBar">
-        <activity android:name=".activity.ProductItemActivity" />
-        <activity android:name=".activity.ProductListActivity" />
-        <activity android:name=".activity.LoginActivity" />
+        <activity
+            android:name=".activity.ProductItemActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ProductListActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.MainActivity"
-            android:label="Sales Summary">
+            android:configChanges="orientation"
+            android:label="Sales Summary"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

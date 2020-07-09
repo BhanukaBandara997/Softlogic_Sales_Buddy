@@ -118,8 +118,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:layout_marginStart="20dp"
+                        android:gravity="left"
                         android:text="Product Category"
+                        android:textSize="16sp"
                         android:textColor="@color/colorLightBlack"
                         android:textStyle="bold" />
 
@@ -127,8 +129,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:layout_marginEnd="20dp"
                         android:text="Sales Amount"
+                        android:gravity="right"
+                        android:textSize="16sp"
                         android:textColor="@color/colorLightBlack"
                         android:textStyle="bold" />
 
@@ -146,9 +150,6 @@
                         android:layout_height="230dp"
                         android:layout_marginBottom="8dp"
                         app:layout_constraintBottom_toTopOf="@+id/guideline"
-                        app:layout_constraintDimensionRatio="1:1"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
