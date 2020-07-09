@@ -5,10 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -57,6 +56,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private RankedSalesAdapter adapter;
     private List<RankedSalesPerson> rankedSalesPersonList;
+    Toolbar mToolbar;
 
 
     public HomeFragment() {
@@ -94,9 +94,12 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Sales Summary");
+//        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Sales Summary");
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        mToolbar = view.findViewById(R.id.home_toolbar);
+        mToolbar.setTitle("Sales Summary");
+        getActivity().setActionBar(mToolbar);
 
         chart = view.findViewById(R.id.pieChart);
         categories_txt = view.findViewById(R.id.categories_txt);

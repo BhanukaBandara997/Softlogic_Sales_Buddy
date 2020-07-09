@@ -7,8 +7,8 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toolbar;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -34,6 +34,7 @@ public class CategoryFragment extends Fragment {
     private RecyclerView recyclerView;
     private CategoryAdapter adapter;
     private List<Category> categoryList;
+    Toolbar mToolbar;
 
     public CategoryFragment() {
         // Required empty public constructor
@@ -71,8 +72,11 @@ public class CategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Product Categories");
+//        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Product Categories");
         View view = inflater.inflate(R.layout.fragment_products, container, false);
+        mToolbar = view.findViewById(R.id.home_toolbar);
+        mToolbar.setTitle("Product Categories");
+        getActivity().setActionBar(mToolbar);
         recyclerView = view.findViewById(R.id.category_recycler_view);
 
         categoryList = new ArrayList<>();

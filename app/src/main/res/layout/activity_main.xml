@@ -12,27 +12,8 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbarLayout"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:fitsSystemWindows="true"
-            android:animateLayoutChanges="true"
-            android:theme="@style/CustomActionBarTheme">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                android:minHeight="?attr/actionBarSize"
-                app:popupTheme="@style/CustomActionBarTheme"
-                app:theme="@style/CustomActionBarTheme"
-                app:titleTextColor="@color/colorWhite" />
-
-        </com.google.android.material.appbar.AppBarLayout>
-
     </LinearLayout>
+
 
     <FrameLayout
         android:id="@+id/container"

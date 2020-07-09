@@ -16,9 +16,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
@@ -36,6 +36,7 @@ public class InvoiceFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    Toolbar mToolbar;
 
 
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
@@ -89,8 +90,12 @@ public class InvoiceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Invoice Generator");
+//        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Invoice Generator");
         View view = inflater.inflate(R.layout.fragment_invoice, container, false);
+        mToolbar = view.findViewById(R.id.home_toolbar);
+        mToolbar.setTitle("Invoice Generator");
+        getActivity().setActionBar(mToolbar);
+
         invoiceNumber = view.findViewById(R.id.invoice_number);
         invoiceProductSerialNumber = view.findViewById(R.id.invoice_product_serial_number);
         invoiceProductQuantity = view.findViewById(R.id.invoice_product_quantity);

@@ -11,7 +11,6 @@
     </style>
 
     <style name="NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
     </style>
 
     <style name="CustomActionBarTheme" parent="@style/AppTheme">

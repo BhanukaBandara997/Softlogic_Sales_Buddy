@@ -1,8 +1,8 @@
 package softlogic_dealer_app.com.softlogic_dealer_app.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import softlogic_dealer_app.com.softlogic_dealer_app.R;
 
