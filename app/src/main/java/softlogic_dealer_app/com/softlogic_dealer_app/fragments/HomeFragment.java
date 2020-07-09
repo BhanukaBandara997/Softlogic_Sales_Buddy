@@ -12,7 +12,9 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
+import com.bumptech.glide.request.animation.GlideAnimation;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -21,12 +23,14 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import softlogic_dealer_app.com.softlogic_dealer_app.R;
 import softlogic_dealer_app.com.softlogic_dealer_app.adapter.RankedSalesAdapter;
+import softlogic_dealer_app.com.softlogic_dealer_app.adapter.SalesCategoryTableAdapter;
 import softlogic_dealer_app.com.softlogic_dealer_app.model.RankedSalesPerson;
 
 /**
@@ -57,6 +61,9 @@ public class HomeFragment extends Fragment {
     private RankedSalesAdapter adapter;
     private List<RankedSalesPerson> rankedSalesPersonList;
     Toolbar mToolbar;
+    DotsIndicator dotsIndicator;
+    ViewPager viewPager;
+    SalesCategoryTableAdapter salesCategoryTableAdapter;
 
 
     public HomeFragment() {
@@ -153,6 +160,12 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         addRankedSalesPersonsToList();
+
+        dotsIndicator = view.findViewById(R.id.dots_indicator);
+        viewPager = view.findViewById(R.id.view_pager);
+        salesCategoryTableAdapter = new SalesCategoryTableAdapter(getContext());
+        viewPager.setAdapter(salesCategoryTableAdapter);
+        dotsIndicator.setViewPager(viewPager);
 
         return view;
     }
