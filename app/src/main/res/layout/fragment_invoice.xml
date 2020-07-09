@@ -6,29 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".fragments.InvoiceFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:animateLayoutChanges="true"
-        android:fitsSystemWindows="true"
-        app:elevation="0dp">
-
-        <Toolbar
-            android:id="@+id/home_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/actionbar_layer_list"
-            android:minHeight="?attr/actionBarSize"
-            android:titleTextColor="@color/colorWhite" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
         android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:animateLayoutChanges="true"
+            android:fitsSystemWindows="true"
+            app:elevation="0dp">
+
+            <Toolbar
+                android:id="@+id/home_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/actionbar_layer_list"
+                android:minHeight="?attr/actionBarSize"
+                android:titleTextColor="@color/colorWhite" />
+
+        </com.google.android.material.appbar.AppBarLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
