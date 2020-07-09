@@ -2,21 +2,27 @@ package softlogic_dealer_app.com.softlogic_dealer_app.fragments;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+
+import java.util.Objects;
 
 import softlogic_dealer_app.com.softlogic_dealer_app.R;
 
@@ -30,12 +36,22 @@ public class InvoiceFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private static final int CAMERA_REQUEST = 1888;
+
+
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
+
+
+    final static int TAKE_PICTURE = 1;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+    static final int REQUEST_TAKE_PHOTO = 1;
+    private static final int PERMISSION_CODE = 1000;
+
     EditText invoiceNumber, invoiceProductSerialNumber, invoiceProductQuantity;
     Button attachInvoiceBtn, uploadInvoiceButton;
     ImageView invoiceReceipt;
-
+    private static final int IMAGE_CAPTURE_CODE = 1001;
+    Uri image_uri;
+    String currentPhotoPath;
 
     public InvoiceFragment() {
         // Required empty public constructor
@@ -85,35 +101,49 @@ public class InvoiceFragment extends Fragment {
         attachInvoiceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                    requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_PERMISSION_CODE);
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O_MR1) {
+                    if (ActivityCompat.checkSelfPermission(Objects.requireNonNull(getContext()), Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED || ActivityCompat.checkSelfPermission(Objects.requireNonNull(getContext()), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+                        requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_CODE);
+                    } else {
+                        openCamera();
+                    }
                 } else {
-                    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                    openCamera();
                 }
             }
         });
         return view;
     }
 
+    private void openCamera() {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(MediaStore.Images.Media.TITLE, "Invoice Image");
+        contentValues.put(MediaStore.Images.Media.DESCRIPTION, "From the Camera");
+        image_uri = Objects.requireNonNull(getContext()).getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+        Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, image_uri);
+        startActivityForResult(cameraIntent, IMAGE_CAPTURE_CODE);
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == MY_CAMERA_PERMISSION_CODE) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent, CAMERA_REQUEST);
-            } else {
-
+        switch (requestCode) {
+            case PERMISSION_CODE: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    openCamera();
+                } else {
+                    Toast.makeText(getContext(), "Permission Denied....", Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
-            invoiceReceipt.setImageBitmap(photo);
+        if (requestCode == IMAGE_CAPTURE_CODE && resultCode == Activity.RESULT_OK) {
+            invoiceReceipt.setImageURI(image_uri);
         }
     }
 }
+

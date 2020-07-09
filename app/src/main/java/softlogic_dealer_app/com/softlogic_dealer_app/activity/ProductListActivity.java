@@ -59,7 +59,6 @@ public class ProductListActivity extends AppCompatActivity {
         return true;
     }
 
-
     /**
      * Adding few albums for testing
      */
