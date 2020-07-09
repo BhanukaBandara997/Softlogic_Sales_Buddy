@@ -48,7 +48,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.6">
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
 
                 <EditText
                     android:id="@+id/invoice_product_serial_number"
-                    android:layout_width="wrap_content"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
@@ -67,7 +67,8 @@
                     android:background="@drawable/editable_text_box_border"
                     android:focusable="true"
                     android:padding="5dp"
-                    android:text="TTIO44545"
+                    android:maxLength="15"
+
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
@@ -76,25 +77,24 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.6">
+                android:layout_weight="0.6"
+                android:gravity="end">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
                     android:gravity="center"
-                    android:text="Product Quantity" />
+                    android:text="Quantity" />
 
                 <EditText
                     android:id="@+id/invoice_product_quantity"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:layout_weight="0.8"
                     android:background="@drawable/editable_text_box_border"
-                    android:focusable="false"
+                    android:focusable="true"
                     android:padding="5dp"
-                    android:text="40"
+                    android:maxLength="4"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
