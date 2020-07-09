@@ -72,7 +72,6 @@ public class PromotionsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-//        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Ongoing Promotions");
         View view = inflater.inflate(R.layout.fragment_promotions, container, false);
         mToolbar = view.findViewById(R.id.promotions_toolbar);
         mToolbar.setTitle("Ongoing Promotions");

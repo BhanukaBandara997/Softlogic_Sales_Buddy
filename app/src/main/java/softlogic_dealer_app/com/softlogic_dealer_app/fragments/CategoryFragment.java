@@ -72,7 +72,6 @@ public class CategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-//        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Product Categories");
         View view = inflater.inflate(R.layout.fragment_products, container, false);
         mToolbar = view.findViewById(R.id.products_toolbar);
         mToolbar.setTitle("Product Categories");

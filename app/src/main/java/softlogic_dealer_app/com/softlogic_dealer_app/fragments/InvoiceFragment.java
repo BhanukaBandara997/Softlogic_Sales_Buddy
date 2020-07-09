@@ -90,7 +90,6 @@ public class InvoiceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-//        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Invoice Generator");
         View view = inflater.inflate(R.layout.fragment_invoice, container, false);
         mToolbar = view.findViewById(R.id.invoice_toolbar);
         mToolbar.setTitle("Invoice Generator");
