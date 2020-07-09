@@ -28,7 +28,7 @@
                 android:paddingRight="10dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
-                android:scaleType="fitXY" />
+                android:scaleType="fitCenter" />
 
             <TextView
                 android:id="@+id/category_title"

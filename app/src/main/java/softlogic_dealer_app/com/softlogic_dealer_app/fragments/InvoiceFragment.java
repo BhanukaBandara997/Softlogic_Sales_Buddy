@@ -112,6 +112,14 @@ public class InvoiceFragment extends Fragment {
                 }
             }
         });
+
+        uploadInvoiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         return view;
     }
 

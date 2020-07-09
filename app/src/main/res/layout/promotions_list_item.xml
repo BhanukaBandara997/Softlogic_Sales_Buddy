@@ -21,7 +21,7 @@
             <ImageView
                 android:id="@+id/promotions_thumbnail"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="600dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:padding="10dp"
