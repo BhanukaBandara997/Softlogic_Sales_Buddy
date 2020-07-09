@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.AccountFragment">
@@ -14,21 +14,67 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbarLayout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="100dp"
             android:animateLayoutChanges="true"
             android:fitsSystemWindows="true"
+            android:layout_margin="5dp"
             app:elevation="0dp">
 
             <Toolbar
                 android:id="@+id/home_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/actionbar_layer_list"
+                android:layout_height="match_parent"
+                android:background="@drawable/account_header"
                 android:minHeight="?attr/actionBarSize"
-                android:titleTextColor="@color/colorWhite" />
+                android:titleTextColor="@color/colorWhite">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/sales_person_username"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="Felicity Lloyd"
+                            android:textColor="@color/colorLightBlack"
+                            android:textSize="22sp"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="end"
+                            android:layout_margin="10dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/personal_user" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </Toolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -227,7 +273,6 @@
 
 
         </LinearLayout>
-
 
     </LinearLayout>
 

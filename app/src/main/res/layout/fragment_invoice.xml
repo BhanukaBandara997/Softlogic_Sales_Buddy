@@ -20,7 +20,7 @@
             app:elevation="0dp">
 
             <Toolbar
-                android:id="@+id/home_toolbar"
+                android:id="@+id/invoice_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/actionbar_layer_list"
@@ -85,9 +85,9 @@
                     android:layout_weight="1"
                     android:background="@drawable/editable_text_box_border"
                     android:focusable="true"
-                    android:padding="5dp"
                     android:inputType="text"
                     android:maxLength="18"
+                    android:padding="5dp"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
@@ -112,9 +112,9 @@
                     android:layout_marginStart="5dp"
                     android:background="@drawable/editable_text_box_border"
                     android:focusable="true"
-                    android:padding="5dp"
-                    android:maxLength="4"
                     android:inputType="number"
+                    android:maxLength="4"
+                    android:padding="5dp"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
@@ -166,22 +166,22 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
                     android:layout_marginBottom="5dp"
                     android:text="Receipt"
-                    android:layout_marginStart="5dp"
                     android:textColor="@color/colorLightGrey"
                     android:textFontWeight="700"
                     android:textSize="14sp" />
 
-                <ImageView
+                <com.zolad.zoominimageview.ZoomInImageView
                     android:id="@+id/invoice_receipt"
                     android:layout_width="350dp"
                     android:layout_height="320dp"
                     android:layout_gravity="center"
-                    android:scaleType="centerCrop"
-                    android:background="@drawable/editable_text_box_border" />
-            </LinearLayout>
+                    android:background="@drawable/editable_text_box_border"
+                    android:scaleType="centerCrop" />
 
+            </LinearLayout>
 
         </LinearLayout>
 
