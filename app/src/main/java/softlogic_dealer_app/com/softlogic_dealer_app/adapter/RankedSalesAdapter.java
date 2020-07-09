@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -47,8 +48,15 @@ public class RankedSalesAdapter extends RecyclerView.Adapter<RankedSalesAdapter.
 
         if (position == 0) {
             holder.firstPlaceThumbnail.setVisibility(View.VISIBLE);
+            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.soldProductAmount.getLayoutParams();
+            params.setMargins(0, 0, 0, 0);
+            holder.soldProductAmount.setLayoutParams(params);
         } else {
             holder.firstPlaceThumbnail.setVisibility(View.GONE);
+            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.soldProductAmount.getLayoutParams();
+            params.setMargins(0, 40, 0, 0);
+            holder.soldProductAmount.setLayoutParams(params);
+
         }
     }
 
