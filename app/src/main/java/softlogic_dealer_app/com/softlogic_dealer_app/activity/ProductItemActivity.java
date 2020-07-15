@@ -44,21 +44,18 @@ public class ProductItemActivity extends AppCompatActivity {
 
         String productName = getIntent().getStringExtra("product_name");
         String productSerialNo = getIntent().getStringExtra("product_serial_no");
-        String productPrice = getIntent().getStringExtra("product_price");
         String productDescription = getIntent().getStringExtra("product_description");
         String productSocialMediaLink = getIntent().getStringExtra("product_social_media_link");
         int productThumbnail = getIntent().getIntExtra("product_thumbnail", 0);
 
         productNameTxt = findViewById(R.id.product_name);
         productSerialNumberTxt = findViewById(R.id.product_serial_number);
-        productPriceTxt = findViewById(R.id.product_price);
         productDescriptionTxt = findViewById(R.id.product_description);
         socialMediaLinkImage = findViewById(R.id.social_media_link);
         productImage = findViewById(R.id.product_image);
 
         productNameTxt.setText(productName);
         productSerialNumberTxt.setText(productSerialNo);
-        productPriceTxt.setText(productPrice);
         productDescriptionTxt.setText(productDescription);
         Glide.with(mContext).load(productThumbnail).into(productImage);
 

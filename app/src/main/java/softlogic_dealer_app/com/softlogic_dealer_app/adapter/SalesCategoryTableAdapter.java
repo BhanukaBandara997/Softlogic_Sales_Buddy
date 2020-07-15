@@ -46,13 +46,13 @@ public class SalesCategoryTableAdapter extends PagerAdapter {
 
     private void updateSalesCategoryList(View view) {
 
-        updateCategory1(view, R.id.category_color_image1, R.id.category_name1, R.id.sales_amount1, R.color.colorDarkGrey, "TEST1");
+        updateCategory1(view, R.id.category_color_image1, R.id.category_name1, R.id.sales_amount1, R.color.colorDarkGrey, "Colour Printers");
 
-        updateCategory2(view, R.id.category_color_image2, R.id.category_name2, R.id.sales_amount2, R.color.colorDarkGreen, "TEST2");
+        updateCategory2(view, R.id.category_color_image2, R.id.category_name2, R.id.sales_amount2, R.color.colorDarkGreen, "Monochrome Printers");
 
-        updateCategory3(view, R.id.category_color_image3, R.id.category_name3, R.id.sales_amount3, R.color.colorOffWhite, "TEST3");
+        updateCategory3(view, R.id.category_color_image3, R.id.category_name3, R.id.sales_amount3, R.color.colorOffWhite, "Document Scanners");
 
-        updateCategory4(view, R.id.category_color_image4, R.id.category_name4, R.id.sales_amount4, R.color.colorBlue, "TEST4");
+        updateCategory4(view, R.id.category_color_image4, R.id.category_name4, R.id.sales_amount4, R.color.colorBlue, "Multimedia Projectors");
     }
 
     private void updateCategory4(View view, int p, int p2, int p3, int p4, String test4) {
@@ -62,7 +62,7 @@ public class SalesCategoryTableAdapter extends PagerAdapter {
 
         categoryColorImage4.setBackgroundTintList(mContext.getResources().getColorStateList(p4));
         categoryName4.setText(test4);
-        salesAmount4.setText("2541");
+        salesAmount4.setText("105");
     }
 
     private void updateCategory3(View view, int p, int p2, int p3, int p4, String test3) {
@@ -72,7 +72,7 @@ public class SalesCategoryTableAdapter extends PagerAdapter {
 
         categoryColorImage3.setBackgroundTintList(mContext.getResources().getColorStateList(p4));
         categoryName3.setText(test3);
-        salesAmount3.setText("2541");
+        salesAmount3.setText("140");
     }
 
     private void updateCategory2(View view, int p, int p2, int p3, int p4, String test2) {
@@ -82,7 +82,7 @@ public class SalesCategoryTableAdapter extends PagerAdapter {
 
         categoryColorImage2.setBackgroundTintList(mContext.getResources().getColorStateList(p4));
         categoryName2.setText(test2);
-        salesAmount2.setText("2541");
+        salesAmount2.setText("200");
     }
 
     private void updateCategory1(View view, int p, int p2, int p3, int p4, String test1) {
@@ -92,7 +92,7 @@ public class SalesCategoryTableAdapter extends PagerAdapter {
 
         categoryColorImage1.setBackgroundTintList(mContext.getResources().getColorStateList(p4));
         categoryName1.setText(test1);
-        salesAmount1.setText("2541");
+        salesAmount1.setText("620");
     }
 
     @Override

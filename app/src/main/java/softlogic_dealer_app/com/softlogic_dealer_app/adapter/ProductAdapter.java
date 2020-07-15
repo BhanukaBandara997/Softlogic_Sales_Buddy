@@ -42,7 +42,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductL
         final int productIndex = position;
         Product product = productList.get(position);
         holder.title.setText(product.getProductSummaryDetails());
-        holder.price.setText(String.valueOf(product.getPrice()));
         holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,7 +49,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductL
                 Intent intent = new Intent(mContext, ProductItemActivity.class);
                 intent.putExtra("product_name", product.getProductName());
                 intent.putExtra("product_serial_no", product.getProductSerialNo());
-                intent.putExtra("product_price", product.getPrice());
                 intent.putExtra("product_description", product.getProductDescription());
                 intent.putExtra("product_social_media_link", product.getSocialMediaLink());
                 intent.putExtra("product_thumbnail", product.getThumbnail());
@@ -68,13 +66,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductL
 
     public class ProductListViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
-        public TextView price;
         public ImageView thumbnail;
 
         public ProductListViewHolder(View view) {
             super(view);
             title = view.findViewById(R.id.product_summary_details);
-            price = view.findViewById(R.id.product_price);
             thumbnail = view.findViewById(R.id.product_thumbnail);
         }
     }

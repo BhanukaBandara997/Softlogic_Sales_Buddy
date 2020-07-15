@@ -176,7 +176,7 @@
                 <com.zolad.zoominimageview.ZoomInImageView
                     android:id="@+id/invoice_receipt"
                     android:layout_width="350dp"
-                    android:layout_height="320dp"
+                    android:layout_height="280dp"
                     android:layout_gravity="center"
                     android:background="@drawable/editable_text_box_border"
                     android:scaleType="centerCrop" />

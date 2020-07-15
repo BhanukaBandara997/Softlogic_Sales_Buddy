@@ -101,7 +101,7 @@ public class CategoryFragment extends Fragment {
                 R.drawable.album2,
                 R.drawable.album3,
                 R.drawable.album4,
-                R.drawable.album5,
+                R.drawable.img11,
                 R.drawable.album6,
                 R.drawable.album7};
 

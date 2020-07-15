@@ -99,7 +99,8 @@ public class PromotionsFragment extends Fragment {
     private void addPromotionsToList() {
         int[] covers = new int[]{
                 R.drawable.promolkpromo1,
-                R.drawable.promolkpromo2};
+                R.drawable.promolkpromo2,
+        };
 
         Promotion a = new Promotion(covers[0]);
         promotionList.add(a);

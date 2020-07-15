@@ -50,7 +50,7 @@ public class ProductListActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new ProductListActivity.GridSpacingItemDecoration(2, dpToPx(10), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-        addCateogriesToList();
+        addProductToList();
     }
 
     @Override
@@ -62,15 +62,15 @@ public class ProductListActivity extends AppCompatActivity {
     /**
      * Adding few albums for testing
      */
-    private void addCateogriesToList() {
+    private void addProductToList() {
         int[] covers = new int[]{
-                R.drawable.album1,
-                R.drawable.album2,
-                R.drawable.album3,
-                R.drawable.album4,
-                R.drawable.album5,
-                R.drawable.album6,
-                R.drawable.album7};
+                R.drawable.img1,
+                R.drawable.img4,
+                R.drawable.img5,
+                R.drawable.img7,
+                R.drawable.img8,
+                R.drawable.img11,
+                R.drawable.img15};
 
         Product a = new Product("Epson EH-TW6100 Home Theater Projector", "Resolution 1080p Projector Distance Zoom: Wide 30 to 300 (0.87 - 8.9m)", "PJ-V11H501052-TW6100", " Resolution 1080p \n" +
                 " Projector Distance \n" +

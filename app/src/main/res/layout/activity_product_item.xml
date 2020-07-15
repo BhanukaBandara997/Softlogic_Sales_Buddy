@@ -74,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:textColor="@color/colorLightBlack"
                 android:textSize="14sp" />
@@ -88,15 +88,6 @@
                 android:gravity="left"
                 android:textColor="@color/colorLightGrey"
                 android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/product_price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:textColor="@color/colorBlack"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
